@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
 html {
   scroll-behavior: smooth;
 }
@@ -17,4 +18,8 @@ html {
 
 .perspective-1000 {
   perspective: 1000px;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
 }
