@@ -58,9 +58,6 @@ const Navbar = () => {
           </nav>
 
           <div className="hidden lg:flex items-center gap-4">
-            {/* <div className="relative">
-              <AnimatedSearch />
-            </div> */}
             <motion.button whileHover={{ backgroundColor: "#222222", boxShadow: "0 4px 10px rgba(0, 0, 0, 0.25)", transition: { duration: 0.3 }, }} whileTap={{ scale: 0.95 }} className="bg-black text-white px-6 py-2 rounded-full font-semibold shadow-md transition-colors transition-shadow duration-300
              focus:outline-none focus:ring-4 focus:ring-gray-700" >     Contact Me
             </motion.button>
@@ -91,18 +88,6 @@ const Navbar = () => {
                   {link}
                 </motion.a>
               ))}
-
-              {/* <div className="relative w-full max-w-md">
-                <FaSearch className="absolute top-1/2 left-4 transform -translate-y-1/2 text-gray-500 text-lg" />
-                <input type="search" placeholder="Search something..."
-                  className="w-full pl-12 pr-4 py-3 rounded-full bg-white/70 backdrop-blur-sm text-base text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-black shadow-md transition" />
-              </div> */}
-
-              <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
-              className="bg-black text-white px-6 py-2 rounded-full font-semibold shadow-md transition-all duration-300
-             hover:bg-gradient-to-r hover:from-[#3B82F6] hover:to-[#4E47E5] focus:outline-none focus:ring-4 focus:ring-gray-700">
-                Contact Me
-              </motion.button>
             </div>
           </motion.div>
         )}

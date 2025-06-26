@@ -1,144 +1,265 @@
-import React from "react";
-import footerbg from "../../assets/footerBg.png";
-import logo from "../../assets/logo.png";
+import React, { useState } from "react";
+import logo from '../../assets/whiteLogo.png';
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaInstagram,
+  FaLinkedinIn,
+  FaStar,
+  FaHeadset,
+  FaQuestionCircle,
+  FaUsers,
+  FaCogs,
+  FaEnvelope,
+  FaPhone,
+  FaChevronRight,
+  FaArrowUp
+} from "react-icons/fa";
 
 const Footer = () => {
+  const [hoveredLink, setHoveredLink] = useState(null);
+
+  // Sample testimonials for the testimonial section
+  const testimonials = [
+    {
+      text: "Outstanding service and results!",
+      author: "Dhruv M.",
+      role: "Website Designer",
+    },
+    {
+      text: "Professional and reliable person.",
+      author: "Krish R.",
+      role: "Website Developer",
+    },
+  ];
+
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+
+  const nextTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+  };
   return (
-    <section className="max-w-[1320px] mx-auto">
-      <footer
-        className="bg-cover bg-center text-[20px] text-gray-100 p-[50px] pb-[25px] w-full rounded-[40px] mt-[2%] shadow-2xl"
-        style={{ backgroundImage: `url(${footerbg})` }}
-        data-aos="fade-up"
-      >
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-          {/* Column 1: Brand */}
-          <div data-aos="fade-up" data-aos-delay="100">
-            <a href="#">
-              <img
-                src={logo}
-                alt="Lotseye Logo"
-                className="w-28 mb-4 bg-white rounded-[30px]"
-              />
-            </a>
-            <p className="text-sm text-gray-400 text-[16px]">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3B82F6] to-[#4E47E5] font-semibold mr-1">
-                LOTS EYE
-              </span>
-              elevates your digital presence.
-            </p>
-            <div className="flex gap-4">
-              {["facebook-f", "twitter", "instagram"].map((icon, i) => (
-                <p
-                  key={i}
-                  className="text-sm mt-[19px] text-[16px]"
-                  data-aos="zoom-in"
-                  data-aos-delay={200 + i * 100}
-                >
+    <section className=" mt-20">
+      <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-gray-100 shadow-2xl border-t-4 border-gradient-to-r from-blue-500 to-purple-600 overflow-hidden">
+        {/* Main Footer Content */}
+        <div className="px-8 py-12">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* Column 1: Brand & Description */}
+            <div className="lg:col-span-1">
+              <div className="flex items-center mb-6">
+                <div className="w-[100px] h-[80px] rounded-xl flex items-center justify-center mr-4 shadow-lg">
+                  <span className="text-white font-bold text-lg">
+                    <img src={logo} alt="" />
+                  </span>
+                </div>
+                <div>
+                  <h2 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
+                    LOTS EYE
+                  </h2>
+                  <p className="text-xs text-gray-400">Digital Solutions</p>
+                </div>
+              </div>
+
+              <p className="text-gray-300 text-sm leading-relaxed mb-6">
+                Elevating your digital presence with innovative solutions,
+                creative designs, and strategic marketing approaches.
+              </p>
+
+              {/* Social Media */}
+              <div className="flex space-x-3">
+                {[
+                  { icon: <FaFacebookF />, color: "from-blue-600 to-blue-700", href: "#" },
+                  { icon: <FaTwitter />, color: "from-sky-500 to-sky-600", href: "#" },
+                  { icon: <FaInstagram />, color: "from-pink-500 to-purple-600", href: "#" },
+                  { icon: <FaLinkedinIn />, color: "from-blue-700 to-indigo-700", href: "#" },
+                ].map((social, index) => (
                   <a
-                    href="#"
-                    className="text-white p-[7px_10px] rounded-full bg-gradient-to-r from-[#4E47E5] to-[#3B82F6] font-semibold mr-1"
+                    key={index}
+                    href={social.href}
+                    className={`w-10 h-10 rounded-lg bg-gradient-to-r ${social.color} flex items-center justify-center text-white hover:scale-110 transition-all duration-300 shadow-md hover:shadow-lg`}
                   >
-                    <i className={`fa-brands fa-${icon}`}></i>
+                    {social.icon}
                   </a>
-                </p>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
 
-          {/* Column 2: Quick Links */}
-          <div data-aos="fade-up" data-aos-delay="200">
-            <h3 className="text-white tracking-wider text-[22px] mb-3 relative pb-[5px]">
-              QUICK LINKS
-              <span className="absolute w-[20%] left-0 h-[4px] rounded bg-gradient-to-r from-[#4E47E5] to-[#3B82F6] bottom-0 z-50"></span>
-            </h3>
-            <ul className="space-y-2 text-sm text-[15px]">
-              {["Customer Spotlight", "Customer Service", "Marketing", "FAQ"].map((item, i) => (
-                <li key={i}>
-                  <a
-                    href="#"
-                    className="hover:text-gray-500 text-gray-300 hover:tracking-wider group duration-[0.2s]"
-                  >
-                    <i className="fa-solid fa-arrow-right text-[#3B82F6] text-[14px] mr-[-10px] translate-x-[-10px] invisible group-hover:mr-[5px] opacity-0 group-hover:opacity-100 group-hover:translate-x-[0px] group-hover:visible pb-[5px] duration-[0.2s]"></i>
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Column 3: Company */}
-          <div data-aos="fade-up" data-aos-delay="300">
-            <h3 className="text-white tracking-wider text-[22px] mb-3 relative pb-[5px]">
-              COMPANY
-              <span className="absolute w-[20%] left-0 h-[4px] rounded bg-gradient-to-r from-[#4E47E5] to-[#3B82F6] bottom-0 z-50"></span>
-            </h3>
-            <ul className="space-y-2 text-sm">
-              {["About Us", "Services", "Contact"].map((item, i) => (
-                <li key={i}>
-                  <a
-                    href="#"
-                    className="hover:text-gray-500 text-gray-300 hover:tracking-wider group duration-[0.2s]"
-                  >
-                    <i className="fa-solid fa-arrow-right text-[#3B82F6] text-[14px] mr-[-10px] translate-x-[-10px] invisible group-hover:mr-[5px] opacity-0 group-hover:opacity-100 group-hover:translate-x-[0px] group-hover:visible pb-[5px] duration-[0.2s]"></i>
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Column 4: Contact */}
-          <div data-aos="fade-up" data-aos-delay="400">
-            <h3 className="text-white tracking-wider text-[22px] pb-[5px] mb-3 relative">
-              CONTACT
-              <span className="absolute w-[20%] left-0 h-[4px] rounded bg-gradient-to-r from-[#4E47E5] to-[#3B82F6] bottom-0 z-50"></span>
-            </h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-               <a href="mailto:ayushiparmar9997@gmail.com" className="hover:text-gray-500 text-gray-300">
-                <i className="fa-solid fa-envelope text-[#3B82F6] text-[14px] mr-[10px]"></i>
-                  ayushiparmar9997@gmail.com
-                </a>
-              </li>
-              <li>
-                <a href="tel:+916353292499" className="hover:text-gray-500 text-gray-300">
-                  <i className="fa-solid fa-phone text-[#3B82F6] text-[14px] mr-[10px]"></i>
-                  +91 6353292499
-                </a>
-              </li>
-              <li data-aos="zoom-in" data-aos-delay="500">
-                <div className="max-w-md mx-auto mt-5">
-                  <div className="flex items-center overflow-hidden rounded-full bg-white shadow-lg">
-                    <input
-                      type="email"
-                      id="email"
-                      placeholder="Enter your email"
-                      className="w-full px-4 py-3 text-gray-800 focus:outline-none"
-                    />
+            {/* Column 2: Quick Links */}
+            <div>
+              <h3 className="text-lg font-semibold text-white mb-6 relative">
+                Quick Links
+                <div className="absolute -bottom-2 left-0 w-8 h-0.5 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full"></div>
+              </h3>
+              <ul className="space-y-3">
+                {[
+                  { name: "Customer Spotlight", icon: <FaStar /> },
+                  { name: "Customer Service", icon: <FaHeadset /> },
+                  { name: "FAQ & Support", icon: <FaQuestionCircle /> },
+                ].map((item, index) => (
+                  <li key={index}>
                     <a
                       href="#"
-                      className="bg-gradient-to-r from-[#4E47E5] to-[#3B82F6] text-white px-5 py-3"
+                      className="flex items-center text-gray-300 hover:text-white transition-all duration-300 group"
+                      onMouseEnter={() => setHoveredLink(`quick-${index}`)}
+                      onMouseLeave={() => setHoveredLink(null)}
                     >
-                      <i className="fa-solid fa-paper-plane text-[16px]"></i>
+                      <span className={`text-blue-400 text-xs mr-3 group-hover:text-purple-400 transition-colors duration-300`}>
+                        {item.icon}
+                      </span>
+                      <span
+                        className={`transition-all duration-300 ${
+                          hoveredLink === `quick-${index}`
+                            ? "translate-x-1"
+                            : ""
+                        }`}
+                      >
+                        {item.name}
+                      </span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Column 3: Company */}
+            <div>
+              <h3 className="text-lg font-semibold text-white mb-6 relative">
+                Company
+                <div className="absolute -bottom-2 left-0 w-8 h-0.5 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full"></div>
+              </h3>
+              <ul className="space-y-3">
+                {[
+                  { name: "About Us", icon: <FaUsers /> },
+                  { name: "Our Services", icon: <FaCogs /> },
+                  { name: "Contact Us", icon: <FaEnvelope /> },
+                ].map((item, index) => (
+                  <li key={index}>
+                    <a
+                      href="#"
+                      className="flex items-center text-gray-300 hover:text-white transition-all duration-300 group"
+                      onMouseEnter={() => setHoveredLink(`company-${index}`)}
+                      onMouseLeave={() => setHoveredLink(null)}
+                    >
+                      <span className={`text-blue-400 text-xs mr-3 group-hover:text-purple-400 transition-colors duration-300`}>
+                        {item.icon}
+                      </span>
+                      <span
+                        className={`transition-all duration-300 ${
+                          hoveredLink === `company-${index}`
+                            ? "translate-x-1"
+                            : ""
+                        }`}
+                      >
+                        {item.name}
+                      </span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Column 4: Contact & Testimonials */}
+            <div>
+              <h3 className="text-lg font-semibold text-white mb-6 relative">
+                Get in Touch
+                <div className="absolute -bottom-2 left-0 w-8 h-0.5 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full"></div>
+              </h3>
+
+              {/* Contact Information */}
+              <div className="space-y-4 mb-6">
+                <div className="flex items-start space-x-3">
+                  <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <FaEnvelope className="text-white text-xs" />
+                  </div>
+                  <div>
+                    <p className="text-gray-400 text-xs">Email</p>
+                    <a
+                      href="mailto:ayushiparmar9997@gmail.com"
+                      className="text-gray-300 hover:text-white text-sm transition-colors duration-300"
+                    >
+                      ayushiparmar9997@gmail.com
                     </a>
                   </div>
                 </div>
-              </li>
-            </ul>
+
+                <div className="flex items-start space-x-3">
+                  <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <FaPhone className="text-white text-xs" />
+                  </div>
+                  <div>
+                    <p className="text-gray-400 text-xs">Phone</p>
+                    <a
+                      href="tel:+916353292499"
+                      className="text-gray-300 hover:text-white text-sm transition-colors duration-300"
+                    >
+                      +91 6353292499
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* Client Testimonial Slider */}
+              <div className="bg-gray-800/50 rounded-xl p-4 border border-gray-700/50">
+                <div className="flex items-center justify-between mb-3">
+                  <h4 className="text-sm font-semibold text-white">
+                    What Clients Say
+                  </h4>
+                  <button
+                    onClick={nextTestimonial}
+                    className="w-6 h-6 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300"
+                  >
+                    <FaChevronRight className="text-white text-xs" />
+                  </button>
+                </div>
+
+                <div className="min-h-[80px]">
+                  <p className="text-gray-300 text-sm italic mb-2">
+                    "{testimonials[currentTestimonial].text}"
+                  </p>
+                  <div className="flex items-center">
+                    <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center mr-2">
+                      <span className="text-white text-xs font-semibold">
+                        {testimonials[currentTestimonial].author.charAt(0)}
+                      </span>
+                    </div>
+                    <div>
+                      <p className="text-white text-xs font-semibold">
+                        {testimonials[currentTestimonial].author}
+                      </p>
+                      <p className="text-gray-400 text-xs">
+                        {testimonials[currentTestimonial].role}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Bottom Line */}
-        <div
-          className="mt-10 text-center text-sm text-gray-400 pt-[25px] border-t-[1px] border-white/20"
-          data-aos="fade-in"
-          data-aos-delay="600"
-        >
-          © {new Date().getFullYear()}{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3B82F6] to-[#4E47E5] font-semibold mr-1">
-            Lotseye
-          </span>
-          . Empowering Brand's Online.
+        {/* Footer Bottom */}
+        <div className="border-t border-gray-700/50 bg-gray-900/50 px-8 py-6">
+          <div className="max-w-7xl mx-auto">
+              {/* Copyright */}
+                <p className="text-gray-400 text-sm text-center">
+                  © {new Date().getFullYear()} {" "}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 font-semibold">
+                    Lotseye
+                  </span>
+                  . All rights reserved. Empowering brands online.
+                </p>
+
+            {/* Back to Top Button */}
+            {/* <div className="flex justify-center mt-6">
+              <button
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+              >
+                <FaArrowUp className="mr-2" />
+                Back to Top
+              </button>
+            </div> */}
+          </div>
         </div>
       </footer>
     </section>
