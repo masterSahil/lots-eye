@@ -72,10 +72,16 @@ const CallToAction = () => {
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
           >
+            {/* Background glow */}
             <div className={`absolute -inset-1 bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 rounded-full blur-lg opacity-60 group-hover:opacity-100 transition-all duration-700 ${isHovered ? 'animate-pulse' : ''}`}></div>
 
-            <div className="relative bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white px-10 py-4 rounded-full font-semibold text-lg shadow-2xl transform transition-all duration-500 group-hover:scale-100 group-active:scale-95">
+            {/* Main button */}
+            <div className="relative bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 rounded-full font-semibold text-base sm:text-lg md:text-xl shadow-2xl transform transition-all duration-500 group-hover:scale-105 group-active:scale-95">
+
+              {/* Shimmer animation */}
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 translate-x-[-100%] group-hover:translate-x-[200%] transition-transform duration-1000 ease-out"></div>
+
+              {/* Floating dots */}
               <div className="absolute inset-0 overflow-hidden rounded-full">
                 {[...Array(6)].map((_, i) => (
                   <div
@@ -90,24 +96,31 @@ const CallToAction = () => {
                   ></div>
                 ))}
               </div>
-              <span className="relative z-10 flex items-center justify-center gap-3">
-                <span className="group-hover:tracking-wide transition-all duration-300">
+
+              {/* Button label */}
+              <span className="relative z-10 flex items-center justify-center gap-2 sm:gap-3">
+                <span className="group-hover:tracking-wide transition-all duration-300 text-center">
                   Schedule Your Free Consultation
                 </span>
-                <svg 
-                  className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" 
-                  fill="none" 
-                  stroke="currentColor" 
+                <svg
+                  className="w-6 h-6 sm:w-5 sm:h-5 transform group-hover:translate-x-1 transition-transform duration-300"
+                  fill="none"
+                  stroke="currentColor"
                   viewBox="0 0 24 24"
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
               </span>
+
+              {/* Inner glow */}
               <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 via-purple-400/20 to-pink-400/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
+
+            {/* Ripple on click */}
             <div className="absolute inset-0 rounded-full opacity-0 group-active:opacity-100 bg-white/20 transform scale-0 group-active:scale-110 transition-all duration-200"></div>
           </button>
         </motion.div>
+
       </div>
 
       <style jsx>{`

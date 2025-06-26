@@ -58,7 +58,7 @@ const Navbar = () => {
           </nav>
 
           <div className="hidden lg:flex items-center gap-4">
-            <motion.button whileHover={{ backgroundColor: "#222222", boxShadow: "0 4px 10px rgba(0, 0, 0, 0.25)", transition: { duration: 0.3 }, }} whileTap={{ scale: 0.95 }} className="bg-black text-white px-6 py-2 rounded-full font-semibold shadow-md transition-colors transition-shadow duration-300
+            <motion.button whileHover={{ backgroundColor: "#222222", boxShadow: "0 4px 10px rgba(0, 0, 0, 0.25)", transition: { duration: 0.3 }, }} whileTap={{ scale: 0.95 }} className="bg-black text-white px-6 py-2 rounded-full font-semibold shadow-md transition-shadow duration-300
              focus:outline-none focus:ring-4 focus:ring-gray-700" >     Contact Me
             </motion.button>
           </div>

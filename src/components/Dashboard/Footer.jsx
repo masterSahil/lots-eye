@@ -249,16 +249,6 @@ const Footer = () => {
                   . All rights reserved. Empowering brands online.
                 </p>
 
-            {/* Back to Top Button */}
-            {/* <div className="flex justify-center mt-6">
-              <button
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
-              >
-                <FaArrowUp className="mr-2" />
-                Back to Top
-              </button>
-            </div> */}
           </div>
         </div>
       </footer>
