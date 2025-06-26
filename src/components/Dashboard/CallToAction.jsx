@@ -123,14 +123,17 @@ const CallToAction = () => {
 
       </div>
 
-      <style jsx>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0px) rotate(0deg); }
-          25% { transform: translateY(-10px) rotate(90deg); }
-          50% { transform: translateY(-5px) rotate(180deg); }
-          75% { transform: translateY(-15px) rotate(270deg); }
-        }
-      `}</style>
+      <style>
+        {`
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      25% { transform: translateY(-10px) rotate(90deg); }
+      50% { transform: translateY(-5px) rotate(180deg); }
+      75% { transform: translateY(-15px) rotate(270deg); }
+    }
+  `}
+      </style>
+
     </section>
   );
 };
