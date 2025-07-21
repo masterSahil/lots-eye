@@ -13,7 +13,8 @@ import {
   FaEnvelope,
   FaPhone,
   FaChevronRight,
-  FaArrowUp
+  FaArrowUp,
+  FaHome
 } from "react-icons/fa";
 
 const Footer = () => {
@@ -129,9 +130,9 @@ const Footer = () => {
               </h3>
               <ul className="space-y-3">
                 {[
-                  { name: "About Us", icon: <FaUsers /> },
-                  { name: "Our Services", icon: <FaCogs /> },
-                  { name: "Contact Us", icon: <FaEnvelope /> },
+                  { name: "Home", icon: <FaHome />, navigateTo: '/' }, 
+                  { name: "Our Services", icon: <FaCogs />, navigateTo: '/service' }, 
+                  { name: "Contact Us", icon: <FaEnvelope />, navigateTo: '/contact' }, 
                 ].map((item, index) => (
                   <li key={index}>
                     <a
