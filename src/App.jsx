@@ -4,6 +4,7 @@ import ServicesSection from './components/pages/Services';
 import ContactPage from './components/pages/Contact';
 import Portfolio from './components/pages/Portfolio';
 import WhatsAppButton from './components/Whatsapp';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path='/contact' element={<ContactPage />} />
       </Routes>
       <WhatsAppButton />
+      <ScrollToTop />
     </BrowserRouter>
   );
 }
