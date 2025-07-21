@@ -16,6 +16,7 @@ import {
   FaArrowUp,
   FaHome
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const [hoveredLink, setHoveredLink] = useState(null);
@@ -135,8 +136,8 @@ const Footer = () => {
                   { name: "Contact Us", icon: <FaEnvelope />, navigateTo: '/contact' }, 
                 ].map((item, index) => (
                   <li key={index}>
-                    <a
-                      href="#"
+                    <Link
+                      to={item.navigateTo}
                       className="flex items-center text-gray-300 hover:text-white transition-all duration-300 group"
                       onMouseEnter={() => setHoveredLink(`company-${index}`)}
                       onMouseLeave={() => setHoveredLink(null)}
@@ -153,7 +154,7 @@ const Footer = () => {
                       >
                         {item.name}
                       </span>
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
