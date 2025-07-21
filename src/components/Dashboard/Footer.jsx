@@ -40,7 +40,7 @@ const Footer = () => {
   };
   return (
     <section className=" mt-20">
-      <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-gray-100 shadow-2xl border-t-4 border-gradient-to-r from-blue-500 to-purple-600 overflow-hidden">
+      <footer className="bg-[radial-gradient(circle_at_75%_50%,_#020617_0%,_#1e40af_30%,_#3b82f6_80%,_#ffffff_140%)] text-gray-100 shadow-2xl border-t-4 border-gradient-to-r from-blue-500 to-purple-600 overflow-hidden">
         {/* Main Footer Content */}
         <div className="px-8 py-12">
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -243,12 +243,12 @@ const Footer = () => {
               {/* Copyright */}
                 <p className="text-gray-400 text-sm text-center">
                   © {new Date().getFullYear()} {" "}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 font-semibold">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 font-semibold bg-[radial-gradient(circle_at_center,_#020617_0%,_#1e40af_50%,_#3b82f6_80%,_#ffffff_100%)]">
                     Lotseye
                   </span>
                   . All rights reserved. Empowering brands online.
                 </p>
-
+                  
           </div>
         </div>
       </footer>

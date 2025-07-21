@@ -1,25 +1,20 @@
-import { BrowserRouter } from 'react-router-dom';
-
-import Navbar from './components/Navbar';
-import Hero from './components/Dashboard/Hero';
-import AboutUs from './components/Dashboard/About';
-import CoreServices from './components/Dashboard/Services';
-import WhyChooseUs from './components/Dashboard/WhyChooseUs';
-import CallToAction from './components/Dashboard/CallToAction';
-import Footer from './components/Dashboard/Footer';
+import { BrowserRouter as Router, Routes, Route, BrowserRouter } from 'react-router-dom';
+import Home from './components/pages/Home';
+import ServicesSection from './components/pages/Services';
+import ContactPage from './components/pages/Contact';
+import Portfolio from './components/pages/Portfolio';
+import WhatsAppButton from './components/Whatsapp';
 
 function App() {
   return (
     <BrowserRouter>
-      <div>
-        <Navbar />
-        <Hero />
-        <AboutUs />
-        <CoreServices />
-        <WhyChooseUs />
-        <CallToAction />
-        <Footer />
-      </div>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/service' element={<ServicesSection />} />
+        <Route path='/portfolio' element={<Portfolio />} />
+        <Route path='/contact' element={<ContactPage />} />
+      </Routes>
+      <WhatsAppButton />
     </BrowserRouter>
   );
 }
